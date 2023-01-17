@@ -16,4 +16,4 @@ If you would rather use the Gitpod development environment for this app:
 - Click the button that says "Gitpod"
 
 
-![screenshot of the updated home pag](screenshot/test.PNG)
+![screenshot of the updated home page](screenshot/test.PNG)
