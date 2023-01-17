@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block app_content %}
+    <h1>You're doing it!</h1>
+    <br>
+    <table class="table table-hover">
+        {% for post in posts %}
+        <tr>
+            <td>
+                <br>
+                <span id="post{{ post.id }}">{{ post.body }}</span>
+            </td>
+        </tr>
+    {% endfor %}
+    </table>
+    <nav aria-label="...">
+        <ul class="pager">
+            <li class="previous{% if not prev_url %} disabled{% endif %}">
+                <a href="{{ prev_url or '#' }}">
+                    <span aria-hidden="true">&larr;</span> {{ _('Newer posts') }}
+                </a>
+            </li>
+            <li class="next{% if not next_url %} disabled{% endif %}">
+                <a href="{{ next_url or '#' }}">
+                    {{ _('Older posts') }} <span aria-hidden="true">&rarr;</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <br>
+<form action="{{ url_for('main.add_post') }}" method="post">
+<div class="form-group">
+<textarea class="form-control" name="body" rows="5"></textarea>
+</div>
+<button type="submit" class="btn btn-primary">{{ _('Add Post') }}</button>
+</form>
+{% endblock %}
